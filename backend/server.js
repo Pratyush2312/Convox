@@ -1,8 +1,17 @@
 import express from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import cors from 'cors';
 const URL=process.env.FRONTEND_URL;
 const app = express();
+
+app.use(
+  cors({
+    origin: URL,
+    credentials: true,
+  })
+);
+
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
