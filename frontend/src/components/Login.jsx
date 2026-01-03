@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { io } from 'socket.io-client'
-
-const socket = io.connect("http://localhost:3000")
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL
+const socket = io.connect(SOCKET_URL)
 const Login = () => {
   const [roomId, setroomId] = useState('')
   const [userName, setuserName] = useState('')
