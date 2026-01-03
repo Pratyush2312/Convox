@@ -7,16 +7,14 @@ const app = express();
 
 app.use(
   cors({
-    origin: URL,
-    credentials: true,
+    origin: URL
   })
 );
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: URL,
-        credentials: true
+        origin: URL
     }
 });
 const PORT=process.env.PORT || 3000;
